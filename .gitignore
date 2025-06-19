@@ -31,3 +31,12 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Miscellaneous Files ###
+.mvn
+.gitignore
+.gitattributes
+mvnw
+mvnw.cmd
+pom.xml
+requests.http

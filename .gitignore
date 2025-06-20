@@ -33,7 +33,7 @@ build/
 .vscode/
 
 ### Miscellaneous Files ###
-.mvn
+.mvn/
 .gitignore
 .gitattributes
 mvnw

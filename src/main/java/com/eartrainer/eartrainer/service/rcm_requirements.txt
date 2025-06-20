@@ -1,0 +1,11 @@
+Intervals:
+L1 (ascending and descending, once): M3, m3
+L2 : L1, P5
+L3: L2, P4
+L4: L3, P8
+L5 (melodic followed by harmonic, once): L4, M6, m6
+L6: L5, M2, m2
+L7: L6, M7, m7
+L8: L7, d5
+L9: L8
+L10 (melodic or harmonic, once): L9, M9, m9

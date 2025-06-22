@@ -2,13 +2,17 @@ package com.eartrainer.eartrainer.service;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 import java.util.Random;
+import org.antlr.v4.runtime.misc.Interval;
 import org.springframework.stereotype.Service;
 
 
 @Service
-public class ExerciseService {
+public class IntervalService {
+
+    public Map<String, Integer> getIntervalMap() {
+        return intervalMap;
+    }
 
     /**
      * the levels and the corresponding intervals
@@ -68,6 +72,12 @@ public class ExerciseService {
             "C#7", "D7", "D#7", "E7", "F7", "F#7", "G7", "G#7", "A7", "A#7", "B7", "C8"};
 
     /**
+     * constructor
+     */
+    public IntervalService() {
+    }
+
+    /**
      * generates an exercise based on the type and level info in rcm_requirements.txt
      */
     public String[] generateInterval(int level) {
@@ -82,16 +92,10 @@ public class ExerciseService {
 
         /* generate the end note from the start note, randomizing whether to go up or down */
         String startNote = startingNotes[randomIndex(startingNotes.length)];
-        Integer startingNoteNumber = notes.get(startNote);
+        Integer startNoteNumber = notes.get(startNote);
         int halfSteps = intervalMap.get(selected_interval);
         int upOrDown = new Random().nextBoolean() ? 1 : -1;
-        int endNoteNumber = startingNoteNumber + halfSteps * upOrDown;
-        String endNote = null;
-        for (Map.Entry<String, Integer> entry : notes.entrySet()) {
-            if (entry.getValue() == endNoteNumber) {
-                endNote = entry.getKey();
-            }
-        }
+        String endNote = allNotes[startNoteNumber + halfSteps * upOrDown];
 
         return new String[]{selected_interval, startNote, endNote};
     }
